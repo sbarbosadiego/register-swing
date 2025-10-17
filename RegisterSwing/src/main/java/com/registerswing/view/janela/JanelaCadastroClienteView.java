@@ -40,6 +40,8 @@ public class JanelaCadastroClienteView extends javax.swing.JDialog {
         jFormattedTextNascimento = new javax.swing.JFormattedTextField();
         jLabelSexo = new javax.swing.JLabel();
         jComboBoxSexo = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabelSexo2 = new javax.swing.JLabel();
         jPanelEndereco = new javax.swing.JPanel();
         jLabelBairro = new javax.swing.JLabel();
         jTextBairro = new javax.swing.JTextField();
@@ -124,7 +126,9 @@ public class JanelaCadastroClienteView extends javax.swing.JDialog {
         jLabelId.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabelId.setText("ID:");
 
+        jTextId.setEditable(false);
         jTextId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextId.setFocusable(false);
 
         jTextNomeCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
@@ -152,6 +156,12 @@ public class JanelaCadastroClienteView extends javax.swing.JDialog {
         jComboBoxSexo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jComboBoxSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Masculino", "Feminino" }));
 
+        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
+
+        jLabelSexo2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabelSexo2.setText("Status:");
+
         javax.swing.GroupLayout jPanelDadosPessoaisLayout = new javax.swing.GroupLayout(jPanelDadosPessoais);
         jPanelDadosPessoais.setLayout(jPanelDadosPessoaisLayout);
         jPanelDadosPessoaisLayout.setHorizontalGroup(
@@ -169,9 +179,13 @@ public class JanelaCadastroClienteView extends javax.swing.JDialog {
                             .addComponent(jFormattedTextCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelSexo)
-                            .addComponent(jComboBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(201, 201, 201))
+                            .addComponent(jComboBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelSexo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelSexo2)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanelDadosPessoaisLayout.createSequentialGroup()
                         .addGroup(jPanelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelId)
@@ -207,11 +221,13 @@ public class JanelaCadastroClienteView extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosPessoaisLayout.createSequentialGroup()
                         .addGroup(jPanelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCpf)
-                            .addComponent(jLabelSexo))
+                            .addComponent(jLabelSexo)
+                            .addComponent(jLabelSexo2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelDadosPessoaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jFormattedTextCpf)
-                            .addComponent(jComboBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jComboBoxSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
@@ -398,6 +414,7 @@ public class JanelaCadastroClienteView extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonSalvar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxSexo;
     private javax.swing.JFormattedTextField jFormattedTextCelular;
     private javax.swing.JFormattedTextField jFormattedTextCpf;
@@ -414,6 +431,7 @@ public class JanelaCadastroClienteView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelRuaLogradouro;
     private javax.swing.JLabel jLabelSexo;
+    private javax.swing.JLabel jLabelSexo2;
     private javax.swing.JLabel jLabelTelefone;
     private javax.swing.JPanel jPanelContato;
     private javax.swing.JPanel jPanelDadosPessoais;

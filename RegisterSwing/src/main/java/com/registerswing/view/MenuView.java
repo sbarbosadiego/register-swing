@@ -67,7 +67,6 @@ public class MenuView extends javax.swing.JFrame {
         estoqueHistorico = new javax.swing.JMenuItem();
         menuVenda = new javax.swing.JMenu();
         pedidoVenda = new javax.swing.JMenuItem();
-        historicoVendas = new javax.swing.JMenuItem();
         menuRelatorios = new javax.swing.JMenu();
         menuOpcoes = new javax.swing.JMenu();
         menuModoEscuro = new javax.swing.JCheckBoxMenuItem();
@@ -153,14 +152,6 @@ public class MenuView extends javax.swing.JFrame {
         });
         menuVenda.add(pedidoVenda);
 
-        historicoVendas.setText("Histórico Vendas");
-        historicoVendas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                historicoVendasActionPerformed(evt);
-            }
-        });
-        menuVenda.add(historicoVendas);
-
         barraMenu.add(menuVenda);
 
         menuRelatorios.setText("Relatórios");
@@ -223,8 +214,6 @@ public class MenuView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getAccessibleContext().setAccessibleName("Register Swing");
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -249,11 +238,6 @@ public class MenuView extends javax.swing.JFrame {
         });
 
     }//GEN-LAST:event_menuModoEscuroActionPerformed
-
-    private void historicoVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historicoVendasActionPerformed
-        TelaVendasView vendasView = new TelaVendasView();
-        openInternalFrame(vendasView);
-    }//GEN-LAST:event_historicoVendasActionPerformed
 
     private void cadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroUsuarioActionPerformed
         TelaUsuarioView usuarioView = new TelaUsuarioView();
@@ -442,7 +426,6 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JMenuItem cadastroUsuario;
     private javax.swing.JMenuItem estoqueAtual;
     private javax.swing.JMenuItem estoqueHistorico;
-    private javax.swing.JMenuItem historicoVendas;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuEstoque;
     private javax.swing.JMenuItem menuGitHub;

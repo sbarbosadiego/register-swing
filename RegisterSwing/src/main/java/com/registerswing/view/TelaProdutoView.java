@@ -78,11 +78,11 @@ public class TelaProdutoView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cód. Produto", "Produto", "Cód. Barras", "Preço Venda"
+                "Cód. Produto", "Produto", "Cód. Barras", "Categoria", "Preço Venda", "Custo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -90,6 +90,10 @@ public class TelaProdutoView extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
+        }
 
         jButtonNovo.setText("Novo");
         jButtonNovo.addActionListener(new java.awt.event.ActionListener() {

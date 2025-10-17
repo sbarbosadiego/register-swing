@@ -56,7 +56,9 @@ public class JanelaCadastroProdutoView extends javax.swing.JDialog {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel1.setText("ID:");
 
+        jTextId.setEditable(false);
         jTextId.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jTextId.setFocusable(false);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel3.setText("Produto:");
