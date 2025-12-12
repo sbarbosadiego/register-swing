@@ -1,4 +1,4 @@
-package com.registerswing.model;
+package com.registerswing.model.produto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,17 +9,18 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Objects;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
  * @author Diego Barbosa da Silva
  */
-@Data
-@NoArgsConstructor
 @Table(name = "produtos")
 @Entity(name = "Produto")
+@Getter
+@NoArgsConstructor
+@EqualsAndHashCode(of = "codigoProduto")
 public class ProdutoModel implements Serializable {
 
     @Id
@@ -38,27 +39,5 @@ public class ProdutoModel implements Serializable {
 
     @Column(name = "data_cadastro", nullable = false)
     private LocalDateTime dataCadastro;
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + Objects.hashCode(this.codigoEan);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ProdutoModel other = (ProdutoModel) obj;
-        return Objects.equals(this.codigoEan, other.codigoEan);
-    }
 
 }
