@@ -27,8 +27,10 @@ public class UsuarioModel {
     @Column(name = "pk_codigo_usuario")
     private Long codigoUsuario;
     
+    @Column(name = "login", length = 200, nullable = false)
     private String usuarioLogin;
     
+    @Column(name = "senha")
     private String usuarioSenha;
     
 }

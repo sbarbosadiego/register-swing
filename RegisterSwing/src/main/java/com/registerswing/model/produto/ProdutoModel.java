@@ -31,7 +31,7 @@ public class ProdutoModel implements Serializable {
     @Column(name = "codigo_ean", unique = true, length = 13)
     private String codigoEan;
 
-    @Column(name = "descricao_produto", length = 150, nullable = false)
+    @Column(name = "descricao_produto", length = 250, nullable = false)
     private String descricaoProduto;
 
     @Column(name = "valor_produto", nullable = false, precision = 10, scale = 2)
