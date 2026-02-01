@@ -1,49 +1,24 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/MDIApplication.java to edit this template
+ */
 package com.registerswing.view;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.FlatLaf;
-import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
-import com.registerswing.view.util.TabInternalFrameManager;
-import java.awt.Desktop;
-import java.awt.EventQueue;
-import java.awt.Insets;
 import java.beans.PropertyVetoException;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import javax.swing.BorderFactory;
-import javax.swing.DefaultDesktopManager;
 import javax.swing.JInternalFrame;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 
 /**
  * @author Diego Barbosa da Silva
  */
 public class MenuView extends javax.swing.JFrame {
 
-    private TabInternalFrameManager tabManager;
-    private boolean darkMode = false;
-
     /**
      * Creates new form MenuView
      */
     public MenuView() {
         initComponents();
-        tabManager = new TabInternalFrameManager(abaTelas, telaPrincipal);
-        configureDesktopPane();
-        configureFlatLaf();
-    }
-
-    private void configureFlatLaf() {
-        // Configurações de UI que não afetam os frames
-        UIManager.put("TabbedPane.showTabSeparators", true);
-        UIManager.put("TabbedPane.tabType", "card");
-        UIManager.put("TabbedPane.tabHeight", 28);
-        UIManager.put("TabbedPane.tabInsets", new Insets(5, 10, 5, 10));
-        //UIManager.put("TabbedPane.selectedBackground", UIManager.getColor("Component.focusedBorderColor"));
-        updateTheme();
     }
 
     /**
@@ -55,8 +30,7 @@ public class MenuView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        telaPrincipal = new javax.swing.JDesktopPane();
-        abaTelas = new javax.swing.JTabbedPane();
+        desktop = new javax.swing.JDesktopPane();
         barraMenu = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
         cadastroProduto = new javax.swing.JMenuItem();
@@ -65,40 +39,30 @@ public class MenuView extends javax.swing.JFrame {
         menuEstoque = new javax.swing.JMenu();
         estoqueAtual = new javax.swing.JMenuItem();
         estoqueHistorico = new javax.swing.JMenuItem();
-        menuVenda = new javax.swing.JMenu();
-        pedidoVenda = new javax.swing.JMenuItem();
-        menuRelatorios = new javax.swing.JMenu();
-        menuOpcoes = new javax.swing.JMenu();
-        menuModoEscuro = new javax.swing.JCheckBoxMenuItem();
-        menuSobre = new javax.swing.JMenu();
-        menuGitHub = new javax.swing.JMenuItem();
-        menuLinkedIn = new javax.swing.JMenuItem();
+        helpMenu = new javax.swing.JMenu();
+        contentMenuItem = new javax.swing.JMenuItem();
+        aboutMenuItem = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Register Swing");
 
-        telaPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        telaPrincipal.setOpaque(false);
-
-        javax.swing.GroupLayout telaPrincipalLayout = new javax.swing.GroupLayout(telaPrincipal);
-        telaPrincipal.setLayout(telaPrincipalLayout);
-        telaPrincipalLayout.setHorizontalGroup(
-            telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
+        desktop.setLayout(desktopLayout);
+        desktopLayout.setHorizontalGroup(
+            desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
-        telaPrincipalLayout.setVerticalGroup(
-            telaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+        desktopLayout.setVerticalGroup(
+            desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 707, Short.MAX_VALUE)
         );
 
-        abaTelas.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-        abaTelas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        barraMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
+        menuCadastro.setMnemonic('f');
         menuCadastro.setText("Cadastro");
-        menuCadastro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        cadastroProduto.setMnemonic('o');
         cadastroProduto.setText("Produto");
         cadastroProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,89 +71,50 @@ public class MenuView extends javax.swing.JFrame {
         });
         menuCadastro.add(cadastroProduto);
 
+        cadastroCliente.setMnemonic('s');
         cadastroCliente.setText("Cliente");
-        cadastroCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastroClienteActionPerformed(evt);
-            }
-        });
         menuCadastro.add(cadastroCliente);
 
+        cadastroUsuario.setMnemonic('a');
         cadastroUsuario.setText("Usuário");
-        cadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastroUsuarioActionPerformed(evt);
-            }
-        });
         menuCadastro.add(cadastroUsuario);
 
         barraMenu.add(menuCadastro);
 
+        menuEstoque.setMnemonic('e');
         menuEstoque.setText("Estoque");
-        menuEstoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        estoqueAtual.setText("Estoque");
-        estoqueAtual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                estoqueAtualActionPerformed(evt);
-            }
-        });
+        estoqueAtual.setMnemonic('t');
+        estoqueAtual.setText("Estoque Atual");
         menuEstoque.add(estoqueAtual);
 
-        estoqueHistorico.setText("Histórico de Estoque");
+        estoqueHistorico.setMnemonic('y');
+        estoqueHistorico.setText("Histórico");
         menuEstoque.add(estoqueHistorico);
 
         barraMenu.add(menuEstoque);
 
-        menuVenda.setText("Venda");
-        menuVenda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        helpMenu.setMnemonic('h');
+        helpMenu.setText("Venda");
 
-        pedidoVenda.setText("Pedidos");
-        pedidoVenda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pedidoVendaActionPerformed(evt);
-            }
-        });
-        menuVenda.add(pedidoVenda);
+        contentMenuItem.setMnemonic('c');
+        contentMenuItem.setText("Contents");
+        helpMenu.add(contentMenuItem);
 
-        barraMenu.add(menuVenda);
+        aboutMenuItem.setMnemonic('a');
+        aboutMenuItem.setText("About");
+        helpMenu.add(aboutMenuItem);
 
-        menuRelatorios.setText("Relatórios");
-        menuRelatorios.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        barraMenu.add(menuRelatorios);
+        barraMenu.add(helpMenu);
 
-        menuOpcoes.setText("Opções");
-        menuOpcoes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenu1.setText("Relatórios");
+        barraMenu.add(jMenu1);
 
-        menuModoEscuro.setText("Modo Escuro");
-        menuModoEscuro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuModoEscuroActionPerformed(evt);
-            }
-        });
-        menuOpcoes.add(menuModoEscuro);
+        jMenu2.setText("Opções");
+        barraMenu.add(jMenu2);
 
-        barraMenu.add(menuOpcoes);
-
-        menuSobre.setText("Sobre");
-
-        menuGitHub.setText("GitHub");
-        menuGitHub.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuGitHubActionPerformed(evt);
-            }
-        });
-        menuSobre.add(menuGitHub);
-
-        menuLinkedIn.setText("LinkedIn");
-        menuLinkedIn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuLinkedInActionPerformed(evt);
-            }
-        });
-        menuSobre.add(menuLinkedIn);
-
-        barraMenu.add(menuSobre);
+        jMenu3.setText("Sobre");
+        barraMenu.add(jMenu3);
 
         setJMenuBar(barraMenu);
 
@@ -197,184 +122,22 @@ public class MenuView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(abaTelas, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
-                    .addComponent(telaPrincipal))
-                .addContainerGap())
+            .addComponent(desktop)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(abaTelas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(telaPrincipal)
-                .addContainerGap())
+            .addComponent(desktop)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroClienteActionPerformed
-        TelaClienteView clienteView = new TelaClienteView();
-        openInternalFrame(clienteView);
-    }//GEN-LAST:event_cadastroClienteActionPerformed
-
     private void cadastroProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroProdutoActionPerformed
         TelaProdutoView produtoView = new TelaProdutoView();
-        openInternalFrame(produtoView);
+        configureFrame(produtoView);
+        desktop.add(produtoView).setVisible(true);
     }//GEN-LAST:event_cadastroProdutoActionPerformed
-
-    private void menuModoEscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuModoEscuroActionPerformed
-        darkMode = menuModoEscuro.isSelected();
-        EventQueue.invokeLater(() -> {
-            FlatAnimatedLafChange.showSnapshot();
-            updateTheme();
-            FlatLaf.updateUI();
-            FlatAnimatedLafChange.hideSnapshotWithAnimation();
-        });
-
-    }//GEN-LAST:event_menuModoEscuroActionPerformed
-
-    private void cadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroUsuarioActionPerformed
-        TelaUsuarioView usuarioView = new TelaUsuarioView();
-        openInternalFrame(usuarioView);
-    }//GEN-LAST:event_cadastroUsuarioActionPerformed
-
-    private void menuGitHubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuGitHubActionPerformed
-        try {
-            URI link = new URI("https://github.com/sbarbosadiego/register-swing");
-            Desktop.getDesktop().browse(link);
-        } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_menuGitHubActionPerformed
-
-    private void menuLinkedInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuLinkedInActionPerformed
-        try {
-            URI link = new URI("https://www.linkedin.com/in/diegobarbosad/");
-            Desktop.getDesktop().browse(link);
-        } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_menuLinkedInActionPerformed
-
-    private void pedidoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidoVendaActionPerformed
-        TelaPedidoView pedidoView = new TelaPedidoView();
-        openInternalFrame(pedidoView);
-    }//GEN-LAST:event_pedidoVendaActionPerformed
-
-    private void estoqueAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estoqueAtualActionPerformed
-        TelaEstoqueView estoqueView = new TelaEstoqueView();
-        openInternalFrame(estoqueView);
-    }//GEN-LAST:event_estoqueAtualActionPerformed
-
-    private void configureDesktopPane() {
-        telaPrincipal.setDesktopManager(new DefaultDesktopManager() {
-            @Override
-            public void activateFrame(JInternalFrame f) {
-                super.activateFrame(f);
-                try {
-                    f.setSelected(true);
-                } catch (PropertyVetoException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-
-    private void updateTheme() {
-        if (darkMode) {
-            FlatDarculaLaf.setup();
-        } else {
-            FlatIntelliJLaf.setup();
-        }
-
-        // Atualiza todos os componentes UI
-        SwingUtilities.updateComponentTreeUI(this);
-
-        // Atualiza todos os frames abertos
-        for (JInternalFrame frame : tabManager.getAllFrames()) {
-            SwingUtilities.updateComponentTreeUI(frame);
-            configureFrameButtons(frame);
-        }
-    }
-
-    private void updateAllFramesUI() {
-        for (JInternalFrame frame : tabManager.getAllFrames()) {
-            // Preserva as configurações originais
-            boolean wasMaximizable = frame.isMaximizable();
-            boolean wasResizable = frame.isResizable();
-
-            // Atualiza a UI
-            SwingUtilities.updateComponentTreeUI(frame);
-
-            // Restaura as configurações
-            try {
-                frame.setMaximizable(wasMaximizable);
-                frame.setResizable(wasResizable);
-                frame.setIconifiable(false); // Garante que minimizar permaneça desativado
-
-                // Mantém a configuração de maximizado
-                if (frame.isMaximum()) {
-                    frame.setMaximum(true);
-                }
-            } catch (PropertyVetoException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void configureFrame(JInternalFrame frame) {
-        try {
-            frame.setClosable(true);
-            frame.setMaximizable(true);  // Permite maximizar
-            frame.setResizable(true);    // Permite redimensionar
-            frame.setIconifiable(false); // Desabilita minimizar
-
-            // Configurações específicas do FlatLaf
-            frame.putClientProperty("JInternalFrame.frameType", "optionDialog");
-            frame.setFrameIcon(null);
-
-            // Remove a barra de título padrão
-            ((javax.swing.plaf.basic.BasicInternalFrameUI) frame.getUI()).setNorthPane(null);
-            frame.setBorder(BorderFactory.createEmptyBorder());
-
-            frame.setMaximum(true);
-        } catch (PropertyVetoException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void configureFrameButtons(JInternalFrame frame) {
-        try {
-            frame.setMaximum(false); // Reset para poder reconfigurar
-            frame.setClosable(true);
-            frame.setMaximizable(true);
-            frame.setIconifiable(false); // Desabilita minimização
-            frame.setResizable(true);
-
-            // Remove a barra de título padrão
-            ((javax.swing.plaf.basic.BasicInternalFrameUI) frame.getUI()).setNorthPane(null);
-            frame.setBorder(BorderFactory.createEmptyBorder());
-
-            // Configurações específicas do FlatLaf
-            frame.putClientProperty("JInternalFrame.frameType", "optionDialog");
-            frame.setFrameIcon(null);
-
-            frame.setMaximum(true);
-        } catch (PropertyVetoException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void openInternalFrame(JInternalFrame frame) {
-        configureFrame(frame);
-        tabManager.addFrameWithTab(frame);
-    }
 
     /**
      * @param args the command line arguments
@@ -402,13 +165,12 @@ public class MenuView extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /**
          * Configura o tema FlatLaf
          */
         FlatIntelliJLaf.setup();
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -417,25 +179,39 @@ public class MenuView extends javax.swing.JFrame {
         });
     }
 
+    private void configureFrame(JInternalFrame frame) {
+        try {
+            frame.setClosable(true);
+            frame.setMaximizable(true);
+            frame.setResizable(true);
+            frame.setIconifiable(true);
+
+            // Configurações específicas do FlatLaf
+            frame.putClientProperty("JInternalFrame.frameType", "optionDialog");
+            frame.setFrameIcon(null);
+
+            frame.setMaximum(true);
+        } catch (PropertyVetoException e) {
+            e.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane abaTelas;
+    private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem cadastroCliente;
     private javax.swing.JMenuItem cadastroProduto;
     private javax.swing.JMenuItem cadastroUsuario;
+    private javax.swing.JMenuItem contentMenuItem;
+    private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenuItem estoqueAtual;
     private javax.swing.JMenuItem estoqueHistorico;
+    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuEstoque;
-    private javax.swing.JMenuItem menuGitHub;
-    private javax.swing.JMenuItem menuLinkedIn;
-    private javax.swing.JCheckBoxMenuItem menuModoEscuro;
-    private javax.swing.JMenu menuOpcoes;
-    private javax.swing.JMenu menuRelatorios;
-    private javax.swing.JMenu menuSobre;
-    private javax.swing.JMenu menuVenda;
-    private javax.swing.JMenuItem pedidoVenda;
-    private javax.swing.JDesktopPane telaPrincipal;
     // End of variables declaration//GEN-END:variables
+
 }

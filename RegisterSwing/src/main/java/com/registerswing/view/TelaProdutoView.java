@@ -52,6 +52,10 @@ public class TelaProdutoView extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
         setTitle("Produto");
         setFrameIcon(null);
         addPropertyChangeListener(new java.beans.PropertyChangeListener() {
