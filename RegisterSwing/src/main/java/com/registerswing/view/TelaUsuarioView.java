@@ -13,7 +13,7 @@ public class TelaUsuarioView extends javax.swing.JInternalFrame {
      */
     public TelaUsuarioView() {
         initComponents();
-        setTitle("Produto");
+        setTitle("Usuário");
         setFrameProperties();
     }
     
@@ -82,6 +82,11 @@ public class TelaUsuarioView extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Novo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Editar");
 
@@ -183,6 +188,10 @@ public class TelaUsuarioView extends javax.swing.JInternalFrame {
             jButtonPesquisar.requestFocus();
         }
     }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

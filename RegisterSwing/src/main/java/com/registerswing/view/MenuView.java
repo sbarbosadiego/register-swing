@@ -1,18 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/MDIApplication.java to edit this template
- */
 package com.registerswing.view;
 
+import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
+import com.registerswing.view.janela.JanelaSobreInfoView;
+import java.awt.EventQueue;
 import java.beans.PropertyVetoException;
-import javax.swing.BorderFactory;
 import javax.swing.JInternalFrame;
 
 /**
  * @author Diego Barbosa da Silva
  */
 public class MenuView extends javax.swing.JFrame {
+
+    private boolean darkMode = false;
 
     /**
      * Creates new form MenuView
@@ -33,18 +35,19 @@ public class MenuView extends javax.swing.JFrame {
         desktop = new javax.swing.JDesktopPane();
         barraMenu = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
-        cadastroProduto = new javax.swing.JMenuItem();
         cadastroCliente = new javax.swing.JMenuItem();
+        cadastroProduto = new javax.swing.JMenuItem();
         cadastroUsuario = new javax.swing.JMenuItem();
         menuEstoque = new javax.swing.JMenu();
         estoqueAtual = new javax.swing.JMenuItem();
         estoqueHistorico = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        menuVenda = new javax.swing.JMenu();
+        pedidoVenda = new javax.swing.JMenuItem();
+        menuRelatorio = new javax.swing.JMenu();
+        menuOpcoes = new javax.swing.JMenu();
+        modoEscuro = new javax.swing.JCheckBoxMenuItem();
+        menuSobre = new javax.swing.JMenu();
+        menuInformacoes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,11 +59,23 @@ public class MenuView extends javax.swing.JFrame {
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 707, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
         );
+
+        barraMenu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         menuCadastro.setMnemonic('f');
         menuCadastro.setText("Cadastro");
+        menuCadastro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        cadastroCliente.setMnemonic('s');
+        cadastroCliente.setText("Cliente");
+        cadastroCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroClienteActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(cadastroCliente);
 
         cadastroProduto.setMnemonic('o');
         cadastroProduto.setText("Produto");
@@ -71,21 +86,28 @@ public class MenuView extends javax.swing.JFrame {
         });
         menuCadastro.add(cadastroProduto);
 
-        cadastroCliente.setMnemonic('s');
-        cadastroCliente.setText("Cliente");
-        menuCadastro.add(cadastroCliente);
-
         cadastroUsuario.setMnemonic('a');
         cadastroUsuario.setText("Usuário");
+        cadastroUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroUsuarioActionPerformed(evt);
+            }
+        });
         menuCadastro.add(cadastroUsuario);
 
         barraMenu.add(menuCadastro);
 
         menuEstoque.setMnemonic('e');
         menuEstoque.setText("Estoque");
+        menuEstoque.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         estoqueAtual.setMnemonic('t');
         estoqueAtual.setText("Estoque Atual");
+        estoqueAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estoqueAtualActionPerformed(evt);
+            }
+        });
         menuEstoque.add(estoqueAtual);
 
         estoqueHistorico.setMnemonic('y');
@@ -94,27 +116,50 @@ public class MenuView extends javax.swing.JFrame {
 
         barraMenu.add(menuEstoque);
 
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Venda");
+        menuVenda.setMnemonic('h');
+        menuVenda.setText("Venda");
+        menuVenda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
+        pedidoVenda.setMnemonic('c');
+        pedidoVenda.setText("Pedidos");
+        pedidoVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pedidoVendaActionPerformed(evt);
+            }
+        });
+        menuVenda.add(pedidoVenda);
 
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
+        barraMenu.add(menuVenda);
 
-        barraMenu.add(helpMenu);
+        menuRelatorio.setText("Relatórios");
+        menuRelatorio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        barraMenu.add(menuRelatorio);
 
-        jMenu1.setText("Relatórios");
-        barraMenu.add(jMenu1);
+        menuOpcoes.setText("Opções");
+        menuOpcoes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenu2.setText("Opções");
-        barraMenu.add(jMenu2);
+        modoEscuro.setText("Modo Escuro");
+        modoEscuro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modoEscuroActionPerformed(evt);
+            }
+        });
+        menuOpcoes.add(modoEscuro);
 
-        jMenu3.setText("Sobre");
-        barraMenu.add(jMenu3);
+        barraMenu.add(menuOpcoes);
+
+        menuSobre.setText("Sobre");
+        menuSobre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        menuInformacoes.setText("Informações");
+        menuInformacoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuInformacoesActionPerformed(evt);
+            }
+        });
+        menuSobre.add(menuInformacoes);
+
+        barraMenu.add(menuSobre);
 
         setJMenuBar(barraMenu);
 
@@ -138,6 +183,54 @@ public class MenuView extends javax.swing.JFrame {
         configureFrame(produtoView);
         desktop.add(produtoView).setVisible(true);
     }//GEN-LAST:event_cadastroProdutoActionPerformed
+
+    private void cadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroClienteActionPerformed
+        TelaClienteView clienteView = new TelaClienteView();
+        configureFrame(clienteView);
+        desktop.add(clienteView).setVisible(true);
+    }//GEN-LAST:event_cadastroClienteActionPerformed
+
+    private void modoEscuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modoEscuroActionPerformed
+        if (modoEscuro.isSelected()) {
+            EventQueue.invokeLater(() -> {
+                FlatAnimatedLafChange.showSnapshot();
+                FlatDarculaLaf.setup();
+                FlatLaf.updateUI();
+                FlatAnimatedLafChange.hideSnapshotWithAnimation();
+            });
+        } else {
+            EventQueue.invokeLater(() -> {
+                FlatAnimatedLafChange.showSnapshot();
+                FlatIntelliJLaf.setup();
+                FlatLaf.updateUI();
+                FlatAnimatedLafChange.hideSnapshotWithAnimation();
+            });
+        }
+    }//GEN-LAST:event_modoEscuroActionPerformed
+
+    private void cadastroUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroUsuarioActionPerformed
+        TelaUsuarioView usuarioView = new TelaUsuarioView();
+        configureFrame(usuarioView);
+        desktop.add(usuarioView).setVisible(true);
+    }//GEN-LAST:event_cadastroUsuarioActionPerformed
+
+    private void estoqueAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estoqueAtualActionPerformed
+        TelaEstoqueView estoqueView = new TelaEstoqueView();
+        configureFrame(estoqueView);
+        desktop.add(estoqueView).setVisible(true);
+    }//GEN-LAST:event_estoqueAtualActionPerformed
+
+    private void pedidoVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pedidoVendaActionPerformed
+        TelaPedidoView pedidoView = new TelaPedidoView();
+        configureFrame(pedidoView);
+        desktop.add(pedidoView).setVisible(true);
+    }//GEN-LAST:event_pedidoVendaActionPerformed
+
+    private void menuInformacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuInformacoesActionPerformed
+        JanelaSobreInfoView janelaSobreInfoView = new JanelaSobreInfoView(this, true);
+        janelaSobreInfoView.setTitle("Informações");
+        janelaSobreInfoView.setVisible(true);
+    }//GEN-LAST:event_menuInformacoesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -170,7 +263,7 @@ public class MenuView extends javax.swing.JFrame {
          * Configura o tema FlatLaf
          */
         FlatIntelliJLaf.setup();
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -185,33 +278,33 @@ public class MenuView extends javax.swing.JFrame {
             frame.setMaximizable(true);
             frame.setResizable(true);
             frame.setIconifiable(true);
-
             // Configurações específicas do FlatLaf
             frame.putClientProperty("JInternalFrame.frameType", "optionDialog");
             frame.setFrameIcon(null);
-
             frame.setMaximum(true);
         } catch (PropertyVetoException e) {
             e.printStackTrace();
         }
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuBar barraMenu;
     private javax.swing.JMenuItem cadastroCliente;
     private javax.swing.JMenuItem cadastroProduto;
     private javax.swing.JMenuItem cadastroUsuario;
-    private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenuItem estoqueAtual;
     private javax.swing.JMenuItem estoqueHistorico;
-    private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuEstoque;
+    private javax.swing.JMenuItem menuInformacoes;
+    private javax.swing.JMenu menuOpcoes;
+    private javax.swing.JMenu menuRelatorio;
+    private javax.swing.JMenu menuSobre;
+    private javax.swing.JMenu menuVenda;
+    private javax.swing.JCheckBoxMenuItem modoEscuro;
+    private javax.swing.JMenuItem pedidoVenda;
     // End of variables declaration//GEN-END:variables
 
 }

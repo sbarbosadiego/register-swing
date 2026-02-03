@@ -1,8 +1,7 @@
 package com.registerswing.view.janela;
 
 /**
- *
- * @author di_an
+ * @author Diego Barbosa da Silva
  */
 public class JanelaCadastroProdutoView extends javax.swing.JDialog {
 
