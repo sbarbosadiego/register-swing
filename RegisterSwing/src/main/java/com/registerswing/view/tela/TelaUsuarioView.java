@@ -1,24 +1,22 @@
-package com.registerswing.view;
+package com.registerswing.view.tela;
 
-
-import com.registerswing.view.janela.JanelaCadastroProdutoView;
 import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 
 /**
  * @author Diego Barbosa da Silva
  */
-public class TelaProdutoView extends javax.swing.JInternalFrame {
+public class TelaUsuarioView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaClienteView
      */
-    public TelaProdutoView() {
+    public TelaUsuarioView() {
         initComponents();
-        setTitle("Produto");
+        setTitle("Usuário");
         setFrameProperties();
     }
-
+    
     private void setFrameProperties() {
         setClosable(true);
         setMaximizable(false);
@@ -44,19 +42,15 @@ public class TelaProdutoView extends javax.swing.JInternalFrame {
         jButtonAtualizar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButtonNovo = new javax.swing.JButton();
-        jButtonEditar = new javax.swing.JButton();
-        jButtonExcluir = new javax.swing.JButton();
-        jButtonExportar = new javax.swing.JButton();
-        jButtonImprimir = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
-        setResizable(true);
-        setTitle("Produto");
+        setTitle("Usuário");
         setFrameIcon(null);
         addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -82,42 +76,25 @@ public class TelaProdutoView extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Cód. Produto", "Produto", "Cód. Barras", "Categoria", "Preço Venda", "Custo"
+                "Cód. Usuário", "Nome", "Usuário", "Data Cad."
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
-        }
 
-        jButtonNovo.setText("Novo");
-        jButtonNovo.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Novo");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNovoActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        jButtonEditar.setText("Editar");
-        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditarActionPerformed(evt);
-            }
-        });
+        jButton2.setText("Editar");
 
-        jButtonExcluir.setText("Excluir");
+        jButton3.setText("Excluir");
 
-        jButtonExportar.setText("Exportar");
+        jButton5.setText("Exportar");
 
-        jButtonImprimir.setText("Imprimir");
+        jButton4.setText("Imprimir");
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -147,15 +124,15 @@ public class TelaProdutoView extends javax.swing.JInternalFrame {
                         .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 618, Short.MAX_VALUE)
-                        .addComponent(jButtonExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -174,11 +151,11 @@ public class TelaProdutoView extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -206,36 +183,24 @@ public class TelaProdutoView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formPropertyChange
 
-    private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
-        javax.swing.JFrame mainFrame = (javax.swing.JFrame) this.getTopLevelAncestor();
-        JanelaCadastroProdutoView janelaCadastroProduto = new JanelaCadastroProdutoView(mainFrame, true);
-        janelaCadastroProduto.setLocationRelativeTo(mainFrame);
-        janelaCadastroProduto.setTitle("Cadastro de Produto");
-        janelaCadastroProduto.setVisible(true);
-    }//GEN-LAST:event_jButtonNovoActionPerformed
-
-    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        javax.swing.JFrame mainFrame = (javax.swing.JFrame) this.getTopLevelAncestor();
-        JanelaCadastroProdutoView janelaCadastroProduto = new JanelaCadastroProdutoView(mainFrame, true);
-        janelaCadastroProduto.setLocationRelativeTo(mainFrame);
-        janelaCadastroProduto.setTitle("Edição de Produto");
-        janelaCadastroProduto.setVisible(true);
-    }//GEN-LAST:event_jButtonEditarActionPerformed
-
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             jButtonPesquisar.requestFocus();
         }
     }//GEN-LAST:event_jTextField1KeyPressed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAtualizar;
-    private javax.swing.JButton jButtonEditar;
-    private javax.swing.JButton jButtonExcluir;
-    private javax.swing.JButton jButtonExportar;
-    private javax.swing.JButton jButtonImprimir;
-    private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonPesquisar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;

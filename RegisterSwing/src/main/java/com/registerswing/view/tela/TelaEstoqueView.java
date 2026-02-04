@@ -1,4 +1,4 @@
-package com.registerswing.view;
+package com.registerswing.view.tela;
 
 import javax.swing.BorderFactory;
 

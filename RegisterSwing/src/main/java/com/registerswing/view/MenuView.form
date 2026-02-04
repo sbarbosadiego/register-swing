@@ -22,6 +22,8 @@
               <Properties>
                 <Property name="mnemonic" type="int" value="115"/>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
+                <Property name="horizontalAlignment" type="int" value="2"/>
+                <Property name="inheritsPopupMenu" type="boolean" value="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastroClienteActionPerformed"/>

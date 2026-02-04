@@ -1,5 +1,10 @@
 package com.registerswing.view;
 
+import com.registerswing.view.tela.TelaUsuarioView;
+import com.registerswing.view.tela.TelaEstoqueView;
+import com.registerswing.view.tela.TelaProdutoView;
+import com.registerswing.view.tela.TelaPedidoView;
+import com.registerswing.view.tela.TelaClienteView;
 import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLaf;
@@ -70,6 +75,8 @@ public class MenuView extends javax.swing.JFrame {
 
         cadastroCliente.setMnemonic('s');
         cadastroCliente.setText("Cliente");
+        cadastroCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        cadastroCliente.setInheritsPopupMenu(true);
         cadastroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastroClienteActionPerformed(evt);
